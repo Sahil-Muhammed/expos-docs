@@ -38,7 +38,7 @@ A detailed discussion of the file system structure, file system calls and XEXE f
 
 ### The eXpOS process Abstraction
 
-It was noted earlier that at the end of bootstrap, eXpOS loads into memory a program stored in a pre-determined part of the disk and creates the first process called the INIT process. Once a process is created, it can spawn new processes using the **fork**  system call. When a process spawns a new process, the former is called the **parent process** and the later is called the **child process**. A process can decide to terminate itself using the **exit** system call. 
+It was noted earlier that at the end of bootstrap, eXpOS loads into memory a program stored in a pre-determined part of the disk and creates the first process called the INIT process. Once a process is created, it can spawn new processes using the **fork**  system call. When a process spawns a new process, the former is called the **parent process** and the latter is called the **child process**. A process can decide to terminate itself using the **exit** system call. 
 
 
  * In the extended eXpOS specification, the INIT process is called the LOGIN process and is executed directly by the kernel. This process invokes the login system call to log a user in. Once a user is logged in, the shell process is created for the user and the original login process waits for the termination of the user shell, to log in the next user. 
