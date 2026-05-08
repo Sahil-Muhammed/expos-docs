@@ -17,7 +17,7 @@ eXpOS provides the following fundamental abstractions to an application program:
 
 ### The eXpFS logical file system
 
-The eXpOS kernal provides a hardware independent logical file system model (called the **experimental file system or eXpFS**) for application programs. The application program views files as being organized and stored in the eXpFS logical file system. Application programs are not permitted to access files directly. Instead, they must invoke the appropriate **file system call** for creating, modifying or accessing files. The OS routine implementing each system call internally translates the request into disk block operations, hiding the hardware details from the application program.
+The eXpOS kernel provides a hardware independent logical file system model (called the **experimental file system or eXpFS**) for application programs. The application program views files as being organized and stored in the eXpFS logical file system. Application programs are not permitted to access files directly. Instead, they must invoke the appropriate **file system call** for creating, modifying or accessing files. The OS routine implementing each system call internally translates the request into disk block operations, hiding the hardware details from the application program.
 
 
 eXpFS support three kinds of files - **data files, program files**  (executable files) and a special file called the **root file.**  The root file is a meta-data file that contains the list of all files in the file system. A data file consists of a sequence of words. A program contains a header, a sequence of machine instructions called text and static data, if any. 
@@ -92,10 +92,10 @@ The file sharing semantics between users in Multiuser extension to eXpOS is desc
 
 ### System Calls
 
-The eXpOS system calls are software interrupt routines of the eXpOS kernal which are loaded into the memory when the OS is bootstrapped. These routines define the services provided by the OS to application programs. These services include accessing files and semaphores, creating new processes , sending a signal to another process etc. 
+The eXpOS system calls are software interrupt routines of the eXpOS kernel which are loaded into the memory when the OS is bootstrapped. These routines define the services provided by the OS to application programs. These services include accessing files and semaphores, creating new processes , sending a signal to another process etc. 
 
 
-Application programs are not permitted to directly access files/semaphores or create new processes. Instead they must invoke the corresponding system call routines. System calls are kernal routines and operate in **privileged or system mode**. Thus when an application program invokes a system call (by invoking the corresponding software interrupt), a change of mode from unprivileged mode to privileged mode occurs. The system call code checks whether the request is valid and the process has permission to the resources/actions requested and then perform the request. Upon completion of the interrupt service routine, control is transferred back to the user process with a switch back to the unprivileged mode. 
+Application programs are not permitted to directly access files/semaphores or create new processes. Instead they must invoke the corresponding system call routines. System calls are kernel routines and operate in **privileged or system mode**. Thus when an application program invokes a system call (by invoking the corresponding software interrupt), a change of mode from unprivileged mode to privileged mode occurs. The system call code checks whether the request is valid and the process has permission to the resources/actions requested and then perform the request. Upon completion of the interrupt service routine, control is transferred back to the user process with a switch back to the unprivileged mode. 
 
 
 eXpOS system calls can be classified as file system calls, process system calls and system calls for access control and synchronization. The following table lists the system calls. A detailed specification can be found [here](systemcallinterface.md).
