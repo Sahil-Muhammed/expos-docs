@@ -444,7 +444,7 @@ call 511;  /* Transfers control to the first page in memory */
 
 Each SPL System Call Handler/Interrupt Handler/Module is designed to occupy a maximum of two pages of continuous memory in the XSM machine. (Sometimes, the generic term "module" is abused to indicate all types of routines of the above categories, though we avoid this usage here). 
 They contain protected mode code that carries out certain functions as determined by the OS programmer.
-The following suggests certain programming conventions which are recommend while designing SPL modules and interrupt handlers.
+The following suggests certain programming conventions which are recommended while designing SPL modules and interrupt handlers.
 
 These routines may be entered as a result of:   
 1. A **system call handler** is entered upon execution of a software interrupt from an application (user mode) program.   
