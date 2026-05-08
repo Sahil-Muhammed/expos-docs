@@ -249,7 +249,7 @@ This system call is used to login a new user. It can be executed only from the l
 	Get the <a href="../../os-design/disk-ds/#user-table">User Table</a> entry curresponding to the username.
 	If an entry does not exist, return -1.
 
-	Use the <a href="../../support-tools/spl/">ecrypt statement</a> to encrypt the password supplied as input.
+	Use the <a href="../../support-tools/spl/">encrypt statement</a> to encrypt the password supplied as input.
 
 	If the encypted input password does not match the ENCRYPTED PASSWORD field in the user table entry, return -1.
 
