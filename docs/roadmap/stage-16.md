@@ -27,7 +27,7 @@ infer that the execution of the IN instruction is complete.
 
 As noted above, the IN instruction is typically executed from the Terminal Read function.
 Since it is not useful for the process that invoked the Terminal Read function to continue
-execution till data arrives in P0, **a process executing the IN instruction will sets its state to WAIT_TERMINAL and invoke the scheduler**. The process must resume execution only after the XSM machine sends an interrupt upon data arrival.
+execution till data arrives in P0, **a process executing the IN instruction will set its state to WAIT_TERMINAL and invoke the scheduler**. The process must resume execution only after the XSM machine sends an interrupt upon data arrival.
 
 
 When the console interrupt occurs, the machine interrupts the current process (note that some
