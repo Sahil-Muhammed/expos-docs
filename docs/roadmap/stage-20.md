@@ -31,7 +31,7 @@ to the child, and the kernel stack of the child is set to empty (that is, KPTR f
 process table entry of the child is set to 0.)
 
 
-Fork system call returns to the the parent process. The parent resumes execution from the
+Fork system call returns to the parent process. The parent resumes execution from the
 next instruction following the INT instruction invoking fork. Upon successful completion, fork
 returns the PID of the child process to parent process.
 
@@ -103,9 +103,9 @@ stored in the PPID field of the process table of the child. [STATE](../os-design
 
 - The [per-process resource table](../os-design/process-table.md#per-process-resource-table) has details about the open instances of the files and the semaphores currently acquired by the process. Child process shares the files and the semaphores opened by the parent process. Hence we need to copy the entries of the per-process resource table of the parent to the child. We will discuss files and semaphores in later stages. (There is a little bit more book keeping work associated with files and semaphores. Since we have not added files or semaphores so far to the OS, we will skip this work for the time being and complete the pending tasks in later stages).
 
-- Copy the [per-process disk map table](../os-design/process-table.md#per-process-disk-map-table) of the parent to the child. This will ensure that the disk block numbers of the code pages of the parent process are copied to the child.Further, if the parent has swapped out heap pages, those will be shared by the child. (This will be explained in detail in a later stage). The eXpOS design guarentees that the stack pages and the user area page of a process will not be swapped at the time when it invokes the fork system call. Hence the disk map table entries of the parent process corresponding to the stack and user area pages will be invalid, and these entries of the child too must be set to invalid.
+- Copy the [per-process disk map table](../os-design/process-table.md#per-process-disk-map-table) of the parent to the child. This will ensure that the disk block numbers of the code pages of the parent process are copied to the child.Further, if the parent has swapped out heap pages, those will be shared by the child. (This will be explained in detail in a later stage). The eXpOS design guarantees that the stack pages and the user area page of a process will not be swapped at the time when it invokes the fork system call. Hence the disk map table entries of the parent process corresponding to the stack and user area pages will be invalid, and these entries of the child too must be set to invalid.
 
-- Initialize the [page table](../os-design/process-table.md#per-process-page-table)of the child process. As heap, code and library pages are shared by the parent process and the child process, copy these entries (page number and auxiliary information) form the page table of the parent to the child. For each page shared, increment the corresponding share count in the [memory free list](../os-design/mem-ds.md#memory-free-list)(why do we do need to do this?). Initialize the stack page entries in the page table with the new memory page numbers obtained earlier. Note that the auxiliary information for the stack pages is same for both parent and child (why?). Copy content of the user stack pages of the parent to the user stack pages of the child word by word.
+- Initialize the [page table](../os-design/process-table.md#per-process-page-table)of the child process. As heap, code and library pages are shared by the parent process and the child process, copy these entries (page number and auxiliary information) from the page table of the parent to the child. For each page shared, increment the corresponding share count in the [memory free list](../os-design/mem-ds.md#memory-free-list)(why do we do need to do this?). Initialize the stack page entries in the page table with the new memory page numbers obtained earlier. Note that the auxiliary information for the stack pages is same for both parent and child (why?). Copy content of the user stack pages of the parent to the user stack pages of the child word by word.
 
 - Store the value in the BP register on top of the kernel stack of child process. This value will be used to initialize the BP register of the child process by the scheduler when the child is scheduled for the first time.
 <!--The processes (child) created by <i>Fork</i>starts the execution from the instruction following call to <i>Fork</i>. So, the child process needs BP value at that point of execution. Hence, BP (BP value of parent) is stored so that when the child starts it execution for the first time, it pops the value from stack and uses it. Note that even the kernel stack has a value present, the KPTR in the process table is still set to 0.-->
@@ -132,7 +132,7 @@ The context-switch (scheduler) module is modified in this stage. The BP register
 has to be initiazed by the scheduler for the first time as child is in created state. Refer to
 the detailed schedular algorithm [here](../modules/module-05.md).
 
-- When the process is in created state, add folllowing steps before switching to user stack.
+- When the process is in created state, add following steps before switching to user stack.
 - Store the value in the first word of the kernel stack to the BP register.
 
 #### Exit System Call
