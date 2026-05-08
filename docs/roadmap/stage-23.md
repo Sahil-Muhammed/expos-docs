@@ -4,7 +4,7 @@ original_url: https://exposnitc.github.io/Roadmap.html
 ---
 
 !!! note 
-    - Familiarize with eXpOS file system and implemtation.
+    - Familiarize with eXpOS file system and implementation.
     - Add support for file creation and deletion to the OS by implementing Create and Delete system calls
 
 !!! abstract "Pre-requisite Reading"
