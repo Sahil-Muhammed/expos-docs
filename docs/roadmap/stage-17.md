@@ -237,7 +237,7 @@ memory page and updates the WAIT_MEM_COUNT and MEM_FREE_COUNT in the system stat
     Since the page storing the kernel context has been de-allocated, before making any function call, a stack page has to be allocated to store parameters, return address etc. It is unsafe to invoke the Get Free Page function of the memory manager module before allocating a stack page (why?).
 
 ??? question "Q2 Why should the OS set the WRITE PERMISSION BIT for library and code pages in each page table entry to 0, denying permission for the process to write to these pages?"
-    ExpOS does not expect processess to modify the code page during execution. Hence,
+    ExpOS does not expect processes to modify the code page during execution. Hence,
     during a fork() system call (to be seen in later stages), the code pages are shared
     between several processes. Similarly, the library pages are shared by all processes. If
     a process is allowed to write into a code/library page, the shared program/library will
