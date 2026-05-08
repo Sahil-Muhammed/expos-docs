@@ -72,7 +72,7 @@ to the new UA Page, MODE, TICK and Kernel Stack Pointer to 0.
 
 /* Kernel Context of the child process is empty */
 
-/* PID, PTBR, PTLR fields of the child's process table is initilized by the get_pcb_entry function.*/ 
+/* PID, PTBR, PTLR fields of the child's process table is initialized by the get_pcb_entry function.*/ 
 
 Copy the <a href="../../os-design/process-table/#per-process-resource-table">per-process resource table</a> and <a href="../../os-design/process-table/#per-process-disk-map-table">per-process disk map table</a>.
 For every open file of the parent, increment the Open Instance Count in the <a href="../../os-design/mem-ds/#open-file-table" target="_blank">Open File Table</a>.
