@@ -52,7 +52,7 @@ application, but because the OS had not loaded the page and set the page tables.
     present strategy of "lazy allocation" to be described now. The strategy followed in this
     stage is to start executing a process with just one page of code and two pages of stack
     allocated initially. When the process, during execution, tries to access a page that was not
-    loaded, an exception is generated and the execption handler will allocate the required page.
+    loaded, an exception is generated and the exception handler will allocate the required page.
     If the required page is a code page, the page will be transferred from the disk to the
     allocated memory. Since pages are allocated only on demand, memory utilization is better (on
     the average) with this approach.
