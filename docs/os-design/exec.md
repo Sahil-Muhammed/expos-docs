@@ -57,7 +57,7 @@ to invoke the memory manager module for allocating a fresh user area page (why?)
 
 Set SP to User Area Page Number * 512 - 1 /* Start fresh in the new kernel stack */
 
-Initilize the <a href="../../os-design/process-table/#per-process-resource-table">Per-process Resource Table</a> by setting all entries to -1.	
+Initialize the <a href="../../os-design/process-table/#per-process-resource-table">Per-process Resource Table</a> by setting all entries to -1.	
 
 In the <a href="../../os-design/process-table/">Process Table</a> entry of the current process, set the Inode Index field to the 
 index of Inode Table entry for the file and set the state as RUNNING.
