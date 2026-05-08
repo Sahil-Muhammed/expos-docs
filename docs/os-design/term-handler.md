@@ -39,7 +39,7 @@ ireturn;
 
 
 !!! question 
-    When interrupts or system calls are invloked, the mode changes from user to kernel. Registers are backed up using the BACKUP instruction in the case of interrupts and not in the case of system calls. Why?
+    When interrupts or system calls are invoked, the mode changes from user to kernel. Registers are backed up using the BACKUP instruction in the case of interrupts and not in the case of system calls. Why?
 
 
 
