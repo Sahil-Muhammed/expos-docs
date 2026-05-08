@@ -49,7 +49,7 @@ If the Resource identifier field of the <a href="../../os-design/process-table/#
 
 Get the index of the <a href="../../os-design/mem-ds/#open-file-table" target="_blank">Open File Table</a> entry from Per-Process Resource Table entry.
 
-Call the <b>close()</b> function in the <a href="../../modules/module-03/">File Manager module</a> with the Open File Table index as arguement.
+Call the <b>close()</b> function in the <a href="../../modules/module-03/">File Manager module</a> with the Open File Table index as argument.
 
 Invalidate the <a href="../../os-design/process-table/#per-process-resource-table" target="_blank">Per-Process Resource Table</a> entry.
 
