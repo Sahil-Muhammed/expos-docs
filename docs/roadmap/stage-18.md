@@ -35,7 +35,7 @@ acquired the disk, the PID of the process is also stored in the disk status tabl
 constant [DISK_STATUS_TABLE](../support-tools/constants.md)gives the starting address of the Disk Status Table in the[XSM memory](../os-implementation.md).
 
 After the current process has acquired the disk for loading, it initializes the Disk Status
-Table according to the operation to be perfromed (read/write). The process then issues the
+Table according to the operation to be performed (read/write). The process then issues the
 <i>load</i> statement to initiate the loading of the disk block to the memory page. As mentioned earlier,
 the XSM machine does not wait for the transfer to complete. It continues with the execution of
 the next instruction. However, virtually in any situation in eXpOS, the process has to wait
